@@ -11,7 +11,7 @@ const SignUpPage = () => {
         const data = Object.fromEntries(formData.entries())
         console.log('here is data from the form', data);
 
-        const {data: resData, error} = await signUp.email({
+        const { data: resData, error } = await signUp.email({
             name: 'Hasibul Hasan Shanto',
             email: data.email,
             password: data.password,
@@ -19,10 +19,11 @@ const SignUpPage = () => {
         console.log(resData, error);
     };
 
-    const handleGoogle =async ()=> {
+    const handleGoogle = async () => {
         const restData = await signIn.social({
             provider: 'google'
         })
+        console.log('google data is here', restData);
     }
 
     return (

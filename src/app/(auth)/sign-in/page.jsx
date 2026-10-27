@@ -10,15 +10,26 @@ const SignInPage = () => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries())
-        const {data: resData, error} = await signIn.email ({
+        const { data: resData, error } = await signIn.email({
             name: data.name,
-            password:data.password,
+            password: data.password,
             email: data.email,
             callbackURL: '/'
         })
 
     };
-
+    const handleLoginG = async () => {
+        const resData = await signIn.social({
+            provider: 'google'
+        })
+        console.log('google data is here ', resData);
+    }
+    const handleLoginHub =async ()=> {
+        const gitData = await signIn.social({
+            provider: 'github'
+        })
+        console.log('git hub data is here', gitData);
+    }
     return (
         <div>
             <h1>
@@ -72,6 +83,8 @@ const SignInPage = () => {
                         Reset
                     </Button>
                 </div>
+                <Button onClick={handleLoginG}>Goggle</Button>
+                <Button onClick={handleLoginHub}>GitHub</Button>
             </Form>
         </div>
     );

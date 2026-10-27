@@ -7,16 +7,16 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { data: session } = useSession()
     const links = <>
+        {session?.user &&<li>
+            <Link href="/feature">Features</Link>
+        </li>}
         <li>
-            <Link href="#">Features</Link>
-        </li>
-        <li>
-            <Link href="#" className="font-medium text-accent" aria-current="page">
+            <Link href="/dashboard" className="font-medium text-accent" aria-current="page">
                 Dashboard
             </Link>
         </li>
         <li>
-            <Link href="#">Pricing</Link>
+            <Link href="/pricing">Pricing</Link>
         </li>
     </>
 
