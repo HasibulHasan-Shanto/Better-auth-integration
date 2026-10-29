@@ -3,6 +3,7 @@ import { signIn } from '@/lib/auth-client';
 import React from 'react';
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import Link from 'next/link';
 
 
 const SignInPage = () => {
@@ -73,6 +74,15 @@ const SignInPage = () => {
                     <Input placeholder="Enter your password" />
                     <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
                     <FieldError />
+                    <p>
+                        Forgot password? <small>
+                            <Link
+                            className='font-bold text-blue-500'
+                             href={'/forgot-password'}>
+                            Click here
+                            </Link>
+                        </small>
+                    </p>
                 </TextField>
                 <div className="flex gap-2">
                     <Button type="submit">

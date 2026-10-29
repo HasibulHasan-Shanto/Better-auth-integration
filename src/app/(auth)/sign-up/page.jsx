@@ -9,14 +9,14 @@ const SignUpPage = () => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries())
-        console.log('here is data from the form', data);
+        // console.log('here is data from the form', data);
 
         const { data: resData, error } = await signUp.email({
             name: 'Hasibul Hasan Shanto',
             email: data.email,
             password: data.password,
         })
-        console.log(resData, error);
+        console.log('complete verification', resData, error);
     };
 
     const handleGoogle = async () => {
