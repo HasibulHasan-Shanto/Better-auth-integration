@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { Check } from "@gravity-ui/icons";
-import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import { Button, Description, FieldError, Form, Input, Label, TextField, toast } from "@heroui/react";
 import { signIn, signUp } from '@/lib/auth-client';
 
 const SignUpPage = () => {
@@ -16,6 +16,7 @@ const SignUpPage = () => {
             email: data.email,
             password: data.password,
         })
+        toast.success('Please Verify Your Email')
         console.log('complete verification', resData, error);
     };
 
